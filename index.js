@@ -37,7 +37,7 @@ app.get('/books', async (req,res)=> {
 
 app.get('/add-note', async (req,res) => {
   try {
-     await Book.insertMany([
+    await Book.insertMany([
       {
         title: "Sons Of Anarchy",
         body: "Body text goes here...",
