@@ -2,20 +2,17 @@ require('dotenv').config();
 
 
 
-var cors = require('cors')
- 
-var corsOptions = {
-  origin: 'https://send4t.github.io/poems.html',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
- 
-app.get('/books', cors(corsOptions), function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for only example.com.'})
-})
- 
-app.listen(80, function () {
-  console.log('CORS-enabled web server listening on port 80')
-})
+const express = require('express');
+
+// Add this middleware before your routes to enable CORS
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://send4t.github.io/poems.html');
+  // You can set other CORS headers as needed, e.g., for handling different HTTP methods or headers.
+  // For simplicity, I'm allowing all methods and headers here (*), but you can be more restrictive.
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  next();
+});
 
 
 
