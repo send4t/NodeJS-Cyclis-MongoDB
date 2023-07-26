@@ -6,7 +6,7 @@ const express = require('express');
 
 // Add this middleware before your routes to enable CORS
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://send4t.github.io/poems.html');
+  res.setHeader('Access-Control-Allow-Origin', 'https://send4t.github.io/');
   // You can set other CORS headers as needed, e.g., for handling different HTTP methods or headers.
   // For simplicity, I'm allowing all methods and headers here (*), but you can be more restrictive.
   res.setHeader('Access-Control-Allow-Methods', '*');
