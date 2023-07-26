@@ -1,20 +1,7 @@
 require('dotenv').config();
 
 
-var cors = require('cors')
-const express = require('express');
-
-// Add this middleware before your routes to enable CORS
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://send4t.github.io/');
-  // You can set other CORS headers as needed, e.g., for handling different HTTP methods or headers.
-  // For simplicity, I'm allowing all methods and headers here (*), but you can be more restrictive.
-  res.setHeader('Access-Control-Allow-Methods', '*');
-  res.setHeader('Access-Control-Allow-Headers', '*');
-  next();
-});
-
-
+const cors = require('cors');
 
 
 const express = require('express')
@@ -37,7 +24,9 @@ const connectDB = async () => {
 
 
 //Routes go here
-app.use(cors())  //pluszban van itt
+app.use(cors({
+  origin: "send4t.github.io"
+}))  //pluszban van itt
 
 
 app.get('/', (req,res) => {
