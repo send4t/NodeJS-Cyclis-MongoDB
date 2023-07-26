@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 
-
+var cors = require('cors')
 const express = require('express');
 
 // Add this middleware before your routes to enable CORS
@@ -37,6 +37,9 @@ const connectDB = async () => {
 
 
 //Routes go here
+app.use(cors())  //pluszban van itt
+
+
 app.get('/', (req,res) => {
     res.send({ title: 'Books' });
 })
