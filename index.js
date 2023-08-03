@@ -1,15 +1,11 @@
 require('dotenv').config();
 
-
-const cors = require('cors');
-
-
 const express = require('express')
 const mongoose = require('mongoose')
 const Book = require("./models/books");
 
 const app = express()
-const PORT = process.env
+const PORT = process.env.PORT || 3000
 
 mongoose.set('strictQuery', false);
 const connectDB = async () => {
@@ -22,13 +18,7 @@ const connectDB = async () => {
   }
 }
 
-
- 
-
-
-
-
-
+//Routes go here
 app.get('/', (req,res) => {
     res.send({ title: 'Books' });
 })
